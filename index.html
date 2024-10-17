@@ -1,37 +1,36 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-<script type="text/javascript">
+    <head>
+        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+        <script type="text/javascript">
 
-window.onload = function () {
+            window.onload = function() 
+            {
+                var n = 1                         
+                //paste data into this array
+                var data = 
+                [12,7,9,8,10,11,13,12,14,18,20,20,16,20,19,15,10,11,13,12,7,4,8,7,5,2,6,4,1,3,1,5,3,5,6,3,1,3,4,1,1,2,5,8,12,14,10,8,7,10,6,3,5,2,3,1,4,9,5,6,7,6,5,3]     
+                var array =  []                
 
-    var n = 1                       //x position for the chart
-    var test = [1, 2 , 3, 4, 5]     //y position, later loaded from jsonfile
-    var array =  []                 //array containing the "dataPoints" for canvasjs
+                data.forEach((number) =>                    
+                {
+                    array.push({ label: n,  y: number  })
+                    n++
+                })
 
-    test.forEach((number) =>                    
-    {
-        array.push({ label: n,  y: number  })
-        n++
-    })
-
-    console.log(idkanymore)
-
-	var chart = new CanvasJS.Chart("chartContainer", 
-    {
-		data: [              
-		{
-			type: "line",
-			dataPoints: array
-		}
-		]
-	});
-	chart.render();
-}
-</script>
-</head>
-<body>
-<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-</body>
+                var chart = new CanvasJS.Chart("chartContainer", 
+                {
+                    data: [              
+                    {
+                        type: "line",
+                        dataPoints: array
+                    }]
+                });
+                chart.render();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    </body>
 </html>
