@@ -5,21 +5,25 @@
 <script type="text/javascript">
 
 window.onload = function () {
-	var chart = new CanvasJS.Chart("chartContainer", {
-		title:{
-			text: "My First Chart in CanvasJS"              
-		},
+
+    var n = 1                       //x position for the chart
+    var test = [1, 2 , 3, 4, 5]     //y position, later loaded from jsonfile
+    var array =  []                 //array containing the "dataPoints" for canvasjs
+
+    test.forEach((number) =>                    
+    {
+        array.push({ label: n,  y: number  })
+        n++
+    })
+
+    console.log(idkanymore)
+
+	var chart = new CanvasJS.Chart("chartContainer", 
+    {
 		data: [              
 		{
-			// Change type to "doughnut", "line", "splineArea", etc.
-			type: "column",
-			dataPoints: [
-				{ label: "apple",  y: 10  },
-				{ label: "orange", y: 15  },
-				{ label: "banana", y: 25  },
-				{ label: "mango",  y: 30  },
-				{ label: "grape",  y: 28  }
-			]
+			type: "line",
+			dataPoints: array
 		}
 		]
 	});
