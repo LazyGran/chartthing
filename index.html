@@ -1,15 +1,27 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <form onsubmit="return create_chart(event)">
+            <div>
+                <label for="test_data">Input array: </label>
+                <input type="text" id="test_data" name="test_data" />
+                <span class="validity"></span>
+                <button>Submit</button>
+            </div>
+            <script type="text/javascript">
+
+            </script>
+        </form onsubmit="return false">
         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
         <script type="text/javascript">
-
-            window.onload = function() 
+            function create_chart()
             {
-                var n = 1                         
-                //paste data into this array
-                var data = 
-                [12,7,9,8,10,11,13,12,14,18,20,20,16,20,19,15,10,11,13,12,7,4,8,7,5,2,6,4,1,3,1,5,3,5,6,3,1,3,4,1,1,2,5,8,12,14,10,8,7,10,6,3,5,2,3,1,4,9,5,6,7,6,5,3]     
+                event.preventDefault();
+
+                const pre_data = test_data.value.replace('[', '').replace(']', '')
+                const data     = pre_data.split(",").map(Number)
+
+                var n = 1 
                 var array =  []                
 
                 data.forEach((number) =>                    
@@ -34,3 +46,5 @@
         <div id="chartContainer" style="height: 300px; width: 100%;"></div>
     </body>
 </html>
+
+
